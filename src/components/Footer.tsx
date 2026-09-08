@@ -10,8 +10,8 @@ export function Footer() {
         </p>
         <div className="w-16 h-px" style={{ background: "rgba(232,213,168,0.4)" }} />
         <p className="text-xs tracking-wide" style={{ color: "rgba(215,240,242,0.5)" }}>
-          © {new Date().getFullYear()} ElaHealing · Crafted by{" "}
-          <a href="https://sb0.co" target="_blank" rel="noopener noreferrer" style={{ color: "#e8d5a8" }}>SB0 LTD</a>
+          © {new Date().getFullYear()} All rights reserved.{" "}
+          <a href="https://sb0.tech" target="_blank" rel="noopener noreferrer" style={{ color: "#e8d5a8" }}>Built with ♥ by SB0 LTD</a>
         </p>
       </div>
     </footer>
