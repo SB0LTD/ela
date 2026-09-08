@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  /* Healing palette — drawn from the teal/gold portrait */
+  --color-teal-50: #f0fafb;
+  --color-teal-100: #d7f0f2;
+  --color-teal-200: #b3e3e8;
+  --color-teal-300: #82cfd7;
+  --color-teal-400: #4fb3bf;
+  --color-teal-500: #2e97a5;
+  --color-teal-600: #257a88;
+  --color-teal-700: #22626e;
+  --color-teal-800: #22505a;
+  --color-teal-900: #21434c;
+
+  --color-gold-300: #e8d5a8;
+  --color-gold-400: #d9bd7f;
+  --color-gold-500: #c9a35f;
+  --color-gold-600: #b08947;
+
+  --color-sand-50: #faf8f4;
+  --color-sand-100: #f4efe6;
+
+  --color-ink: #1f333a;
+  --color-ink-soft: #4a5f66;
+  --color-ink-muted: #8299a0;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Jost", system-ui, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-sand-50);
+  line-height: 1.75;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+.mx-auto {
+  margin-inline: auto;
+}
+
+::selection {
+  background: rgba(201, 163, 95, 0.25);
+  color: var(--color-ink);
+}
+
+/* Thin elegant scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-sand-100); }
+::-webkit-scrollbar-thumb { background: var(--color-teal-300); border-radius: 4px; }
