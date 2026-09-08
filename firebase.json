@@ -5,7 +5,15 @@
     "rewrites": [{ "source": "**", "destination": "/index.html" }],
     "headers": [
       {
-        "source": "**/*.@(js|css|svg|png|jpg|jpeg|gif|webp|ico|woff2)",
+        "source": "/og-image.jpg",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }]
+      },
+      {
+        "source": "/index.html",
+        "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
+      },
+      {
+        "source": "**/*.@(js|css|svg|png|gif|webp|ico|woff2)",
         "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
       }
     ]
