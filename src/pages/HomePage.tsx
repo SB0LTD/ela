@@ -92,6 +92,57 @@ export function HomePage() {
         </div>
       </section>
 
+      {/* ═══ Documented Remission (credibility) ═══ */}
+      <section id="proof" className="px-8 py-32 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #f0fafb 0%, #d7f0f2 100%)" }}>
+        <motion.div animate={{ scale: [1, 1.12, 1], opacity: [0.12, 0.2, 0.12] }} transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute rounded-full blur-3xl" style={{ bottom: "-8%", left: "-5%", width: 380, height: 380, background: "rgba(46,151,165,0.35)" }} />
+
+        <div className="max-w-5xl mx-auto relative">
+          <motion.p {...rise} className="text-center text-sm tracking-[0.3em] uppercase mb-6" style={{ color: "#c9a35f" }}>Real People. Real Results.</motion.p>
+          <motion.h2 {...rise} className="font-serif text-center mb-6" style={{ color: "#22505a", fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+            Documented MS remission
+          </motion.h2>
+          <motion.p {...rise} className="text-center max-w-xl mx-auto mb-14 leading-relaxed" style={{ color: "#4a5f66" }}>
+            A physician-issued medical summary from Clalit, Israel's largest healthcare organization, documenting my remission status.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{ y: -6 }}
+            className="relative rounded-3xl overflow-hidden mx-auto"
+            style={{ maxWidth: 900, boxShadow: "0 30px 70px rgba(34,80,90,0.28)", border: "1px solid rgba(255,255,255,0.6)" }}
+          >
+            <img src="/cred.png" alt="Physician-issued MS remission summary from Clalit, presented by Ela in collaboration with SBO" className="w-full h-auto block" />
+          </motion.div>
+
+          <motion.p {...rise} className="text-center text-xs mt-6" style={{ color: "#8299a0" }}>
+            Published with patient consent. Personal details redacted for public display.
+          </motion.p>
+
+          {/* Trust badges */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-3xl mx-auto">
+            {[
+              { t: "Evidence-Based", d: "Approach" },
+              { t: "Life-Changing", d: "Results" },
+              { t: "Real People", d: "In Partnership" },
+              { t: "A Brighter", d: "Tomorrow" },
+            ].map((b, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="text-center">
+                <div className="w-10 h-10 rounded-full mx-auto mb-3 flex items-center justify-center" style={{ background: "rgba(46,151,165,0.12)", border: "1px solid rgba(46,151,165,0.25)" }}>
+                  <span style={{ color: "#2e97a5" }}>{["✦", "✿", "♥", "☼"][i]}</span>
+                </div>
+                <p className="font-serif text-lg leading-tight" style={{ color: "#22505a" }}>{b.t}</p>
+                <p className="text-xs tracking-wide" style={{ color: "#8299a0" }}>{b.d}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ═══ Approach ═══ */}
       <section id="approach" className="px-8 py-32 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #22505a 0%, #22626e 100%)" }}>
         <motion.div animate={{ scale: [1, 1.15, 1], opacity: [0.15, 0.25, 0.15] }} transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}

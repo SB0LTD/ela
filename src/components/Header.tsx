@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
   { label: "My Story", href: "#story" },
+  { label: "Proof", href: "#proof" },
   { label: "Approach", href: "#approach" },
   { label: "Work With Me", href: "#offerings" },
-  { label: "Music", href: "#music" },
 ];
 
 export function Header() {
