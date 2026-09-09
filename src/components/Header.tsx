@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const links = [
-  { label: "My Story", href: "#story" },
-  { label: "Proof", href: "#proof" },
-  { label: "Approach", href: "#approach" },
-  { label: "Work With Me", href: "#offerings" },
-];
+import { useTranslation } from "react-i18next";
+import { LangSwitcher } from "@/components/LangSwitcher";
 
 export function Header() {
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const links = [
+    { label: t("nav.story"), href: "#story" },
+    { label: t("nav.proof"), href: "#proof" },
+    { label: t("nav.approach"), href: "#approach" },
+    { label: t("nav.offerings"), href: "#offerings" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -47,15 +50,19 @@ export function Header() {
             style={{ border: "1px solid #82cfd7", color: "#22505a" }}
             onMouseEnter={(e) => { e.currentTarget.style.background = "#22505a"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#22505a"; }}
             onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#22505a"; e.currentTarget.style.borderColor = "#82cfd7"; }}>
-            Connect
+            {t("nav.connect")}
           </a>
+          <LangSwitcher />
         </nav>
 
-        <button onClick={() => setOpen(!open)} className="md:hidden p-2" aria-label="Menu">
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="#22505a" strokeWidth={1.5}>
-            {open ? <path strokeLinecap="round" d="M6 18L18 6M6 6l12 12" /> : <path strokeLinecap="round" d="M4 7h16M4 12h16M4 17h16" />}
-          </svg>
-        </button>
+        <div className="md:hidden flex items-center gap-4">
+          <LangSwitcher />
+          <button onClick={() => setOpen(!open)} className="p-1" aria-label="Menu">
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="#22505a" strokeWidth={1.5}>
+              {open ? <path strokeLinecap="round" d="M6 18L18 6M6 6l12 12" /> : <path strokeLinecap="round" d="M4 7h16M4 12h16M4 17h16" />}
+            </svg>
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -68,7 +75,7 @@ export function Header() {
                   {l.label}
                 </a>
               ))}
-              <a href="#contact" onClick={() => setOpen(false)} className="text-base tracking-wide" style={{ color: "#c9a35f" }}>Connect</a>
+              <a href="#contact" onClick={() => setOpen(false)} className="text-base tracking-wide" style={{ color: "#c9a35f" }}>{t("nav.connect")}</a>
             </div>
           </motion.nav>
         )}
