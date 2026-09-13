@@ -46,10 +46,11 @@ export function Header() {
               {l.label}
             </a>
           ))}
-          <a href="#contact" className="text-sm tracking-wide px-5 py-2 rounded-full transition-all"
-            style={{ border: "1px solid #82cfd7", color: "#22505a" }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = "#22505a"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#22505a"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#22505a"; e.currentTarget.style.borderColor = "#82cfd7"; }}>
+          <a href="#contact"
+            className="text-sm tracking-wide rounded-full transition-all whitespace-nowrap"
+            style={{ padding: "10px 26px", background: "linear-gradient(135deg, #22505a, #2e97a5)", color: "#fff", boxShadow: "0 6px 18px rgba(34,80,90,0.2)", display: "inline-flex", alignItems: "center" }}
+            onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.boxShadow = "0 10px 24px rgba(34,80,90,0.3)"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 6px 18px rgba(34,80,90,0.2)"; }}>
             {t("nav.connect")}
           </a>
           <LangSwitcher />

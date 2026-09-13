@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { ContactForm } from "@/components/ContactForm";
+import { MusicWave } from "@/components/MusicWave";
 
 const rise = {
   initial: { opacity: 0, y: 24 },
@@ -140,13 +141,13 @@ export function HomePage() {
               { title: t("approach.card3t"), body: t("approach.card3b") },
             ].map((c, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.7, delay: i * 0.12 }}
-                whileHover={{ y: -6 }} className="rounded-2xl p-8"
-                style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(130,207,215,0.2)", backdropFilter: "blur(6px)" }}>
-                <div className="w-11 h-11 rounded-full flex items-center justify-center mb-5" style={{ background: "rgba(232,213,168,0.15)", border: "1px solid rgba(232,213,168,0.3)" }}>
+                whileHover={{ y: -6 }} className="rounded-3xl"
+                style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(130,207,215,0.2)", backdropFilter: "blur(6px)", padding: "40px 36px" }}>
+                <div className="w-11 h-11 rounded-full flex items-center justify-center mb-6" style={{ background: "rgba(232,213,168,0.15)", border: "1px solid rgba(232,213,168,0.3)" }}>
                   <span style={{ color: "#e8d5a8" }}>{["✦", "○", "◇"][i]}</span>
                 </div>
-                <h3 className="font-serif text-2xl mb-3 text-white">{c.title}</h3>
-                <p className="leading-relaxed text-sm" style={{ color: "rgba(215,240,242,0.7)" }}>{c.body}</p>
+                <h3 className="font-serif text-2xl mb-4 text-white">{c.title}</h3>
+                <p className="leading-relaxed text-sm" style={{ color: "rgba(215,240,242,0.72)" }}>{c.body}</p>
               </motion.div>
             ))}
           </div>
@@ -161,7 +162,7 @@ export function HomePage() {
             {t("offerings.title")}
           </motion.h2>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             {[
               { t: t("offerings.o1t"), d: t("offerings.o1d") },
               { t: t("offerings.o2t"), d: t("offerings.o2d") },
@@ -169,11 +170,11 @@ export function HomePage() {
               { t: t("offerings.o4t"), d: t("offerings.o4d") },
             ].map((o, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.7, delay: i * 0.1 }}
-                whileHover={{ y: -4 }} className="rounded-2xl p-8 flex gap-5"
-                style={{ background: "#fff", border: "1px solid rgba(130,207,215,0.25)", boxShadow: "0 8px 24px rgba(34,80,90,0.05)" }}>
-                <div className="shrink-0 font-serif text-3xl" style={{ color: "#d9bd7f" }}>{String(i + 1).padStart(2, "0")}</div>
+                whileHover={{ y: -4 }} className="rounded-3xl flex gap-6"
+                style={{ background: "#fff", border: "1px solid rgba(130,207,215,0.25)", boxShadow: "0 8px 24px rgba(34,80,90,0.05)", padding: "36px 34px" }}>
+                <div className="shrink-0 font-serif text-3xl leading-none" style={{ color: "#d9bd7f", paddingTop: "2px" }}>{String(i + 1).padStart(2, "0")}</div>
                 <div>
-                  <h3 className="font-serif text-2xl mb-2" style={{ color: "#22505a" }}>{o.t}</h3>
+                  <h3 className="font-serif text-2xl mb-3" style={{ color: "#22505a" }}>{o.t}</h3>
                   <p className="text-sm leading-relaxed" style={{ color: "#4a5f66" }}>{o.d}</p>
                 </div>
               </motion.div>
@@ -194,13 +195,8 @@ export function HomePage() {
             <p>{t("music.p2")}</p>
             <p>{t("music.p3")}</p>
           </motion.div>
-          <motion.div {...rise} className="flex items-end justify-center gap-1.5 mt-14 h-16">
-            {Array.from({ length: 32 }).map((_, i) => (
-              <motion.span key={i}
-                animate={{ height: [`${10 + (i % 5) * 8}%`, `${40 + (i % 7) * 8}%`, `${10 + (i % 5) * 8}%`] }}
-                transition={{ duration: 1.2 + (i % 4) * 0.3, repeat: Infinity, ease: "easeInOut", delay: i * 0.05 }}
-                className="w-1 rounded-full" style={{ background: "linear-gradient(to top, #2e97a5, #c9a35f)" }} />
-            ))}
+          <motion.div {...rise}>
+            <MusicWave />
           </motion.div>
         </div>
       </section>

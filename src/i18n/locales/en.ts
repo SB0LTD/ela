@@ -64,6 +64,8 @@ export const en = {
     p1: "Long before ElaHealing existed, I was a singer-songwriter and music creator. My MS emerged in the middle of one of the most important creative periods of my life.",
     p2: "Music was there before the illness. It remained through the hardest years. And it is still part of my life today.",
     p3: "Over time, my healing journey and my creative journey became deeply intertwined — both taught me to listen more closely to my body, my intuition, and my own voice.",
+    hint: "Hover to listen",
+    playing: "Now playing",
   },
   contact: {
     eyebrow: "Begin Your Journey",
