@@ -27,6 +27,8 @@
 
   --font-serif: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Jost", system-ui, sans-serif;
+  --font-serif-he: "Frank Ruhl Libre", Georgia, serif;
+  --font-sans-he: "Assistant", system-ui, sans-serif;
 }
 
 * {
@@ -51,6 +53,21 @@ body {
 
 .mx-auto {
   margin-inline: auto;
+}
+
+/* Hebrew gets dedicated fonts — Cormorant/Jost don't render Hebrew well */
+[dir="rtl"] body,
+[dir="rtl"] {
+  font-family: var(--font-sans-he);
+  line-height: 1.85;
+}
+[dir="rtl"] .font-serif {
+  font-family: var(--font-serif-he);
+}
+/* Slightly tighten Hebrew serif headings which run tall */
+[dir="rtl"] h1.font-serif,
+[dir="rtl"] h2.font-serif {
+  line-height: 1.25;
 }
 
 ::selection {

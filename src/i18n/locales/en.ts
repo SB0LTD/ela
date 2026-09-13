@@ -22,7 +22,7 @@ export const en = {
     p1: "About a decade ago, while I was in the middle of recording my music, multiple sclerosis became a major part of my life. What followed changed everything.",
     p2: "Instead of looking at my body through symptoms alone, I began exploring the connections between nutrition, stress, trauma, the nervous system, movement, environment, and the body's ability to restore balance.",
     p3: "My path included nutrition, supplementation, breathwork, meditation, cold exposure, acupuncture, and nervous-system regulation. Eventually, I reached remission — a milestone later reflected in my MRI results.",
-    p4: "That experience became the foundation of ElaHealing. Today I live in full remission from multiple sclerosis, without using MS disease-modifying medication.",
+    p4: "That experience became the foundation of ElaHealing. Today I live in remission from multiple sclerosis, without using MS disease-modifying medication.",
     quote: "\"Holistic wellbeing means looking beyond an isolated symptom, and seeing the person behind it.\"",
   },
   proof: {

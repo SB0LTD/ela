@@ -30,7 +30,7 @@ export function ContactForm() {
   };
 
   const field: React.CSSProperties = {
-    width: "100%", padding: "15px 18px", borderRadius: "14px", fontSize: "15px",
+    width: "100%", padding: "17px 20px", borderRadius: "14px", fontSize: "15px",
     border: "1px solid rgba(130,207,215,0.4)", background: "#fff", outline: "none",
     fontFamily: "inherit", color: "#22505a",
   };
@@ -47,7 +47,7 @@ export function ContactForm() {
           <p style={{ color: "#4a5f66" }}>{t("contact.thanksBody")}</p>
         </motion.div>
       ) : (
-        <motion.form key="form" onSubmit={submit} className="space-y-4 text-left" initial={{ opacity: 1 }} exit={{ opacity: 0 }}>
+        <motion.form key="form" onSubmit={submit} className="space-y-5 text-left" initial={{ opacity: 1 }} exit={{ opacity: 0 }}>
           <input style={field} placeholder={t("contact.name")} value={data.name} onChange={(e) => set("name", e.target.value)}
             onFocus={(e) => { e.currentTarget.style.borderColor = "#2e97a5"; e.currentTarget.style.boxShadow = "0 0 0 3px rgba(46,151,165,0.08)"; }}
             onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(130,207,215,0.4)"; e.currentTarget.style.boxShadow = "none"; }} />
@@ -58,8 +58,8 @@ export function ContactForm() {
             onFocus={(e) => { e.currentTarget.style.borderColor = "#2e97a5"; e.currentTarget.style.boxShadow = "0 0 0 3px rgba(46,151,165,0.08)"; }}
             onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(130,207,215,0.4)"; e.currentTarget.style.boxShadow = "none"; }} />
           <motion.button type="submit" disabled={submitting} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 400, damping: 25 }}
-            style={{ width: "100%", padding: "16px", borderRadius: "999px", border: "none", cursor: "pointer", fontSize: "15px", letterSpacing: "0.02em", color: "#fff",
-              background: "linear-gradient(135deg, #22505a, #2e97a5)", boxShadow: "0 10px 30px rgba(34,80,90,0.25)", opacity: submitting ? 0.7 : 1 }}>
+            style={{ width: "100%", padding: "18px", borderRadius: "999px", border: "none", cursor: "pointer", fontSize: "15px", letterSpacing: "0.03em", color: "#fff",
+              background: "linear-gradient(135deg, #22505a, #2e97a5)", boxShadow: "0 10px 30px rgba(34,80,90,0.25)", opacity: submitting ? 0.7 : 1, marginTop: "8px" }}>
             {submitting ? t("contact.sending") : t("contact.send")}
           </motion.button>
         </motion.form>

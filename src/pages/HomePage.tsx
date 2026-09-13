@@ -10,7 +10,9 @@ const rise = {
 };
 
 export function HomePage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = (i18n.language.split("-")[0] as "en" | "he" | "ru") || "en";
+  const credSrc = `/cred.${["en", "he", "ru"].includes(lang) ? lang : "en"}.png`;
 
   return (
     <>
@@ -40,11 +42,11 @@ export function HomePage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <motion.a href="#story" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                style={{ background: "linear-gradient(135deg, #22505a, #2e97a5)", color: "#fff", padding: "16px 38px", borderRadius: "999px", fontSize: "15px", letterSpacing: "0.02em", textDecoration: "none", boxShadow: "0 10px 30px rgba(34,80,90,0.25)" }}>
+                style={{ background: "linear-gradient(135deg, #22505a, #2e97a5)", color: "#fff", padding: "18px 44px", borderRadius: "999px", fontSize: "15px", letterSpacing: "0.03em", textDecoration: "none", boxShadow: "0 10px 30px rgba(34,80,90,0.25)", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
                 {t("hero.ctaJourney")}
               </motion.a>
               <motion.a href="#offerings" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                style={{ background: "transparent", color: "#22505a", padding: "16px 38px", borderRadius: "999px", fontSize: "15px", letterSpacing: "0.02em", textDecoration: "none", border: "1px solid #82cfd7" }}>
+                style={{ background: "transparent", color: "#22505a", padding: "18px 44px", borderRadius: "999px", fontSize: "15px", letterSpacing: "0.03em", textDecoration: "none", border: "1px solid #82cfd7", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
                 {t("hero.ctaWork")}
               </motion.a>
             </div>
@@ -99,38 +101,21 @@ export function HomePage() {
           </motion.p>
 
           <motion.div
+            key={credSrc}
             initial={{ opacity: 0, y: 40, scale: 0.97 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             whileHover={{ y: -6 }}
             className="relative rounded-3xl overflow-hidden mx-auto"
-            style={{ maxWidth: 900, boxShadow: "0 30px 70px rgba(34,80,90,0.28)", border: "1px solid rgba(255,255,255,0.6)" }}
+            style={{ maxWidth: 960, boxShadow: "0 30px 70px rgba(34,80,90,0.28)", border: "1px solid rgba(255,255,255,0.6)" }}
           >
-            <img src="/cred.png" alt={t("proof.title")} className="w-full h-auto block" />
+            <img src={credSrc} alt={t("proof.title")} className="w-full h-auto block" />
           </motion.div>
 
-          <motion.p {...rise} className="text-center text-xs mt-6" style={{ color: "#8299a0" }}>
+          <motion.p {...rise} className="text-center text-xs mt-8" style={{ color: "#8299a0" }}>
             {t("proof.disclaimer")}
           </motion.p>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-3xl mx-auto">
-            {[
-              { t: t("proof.badge1t"), d: t("proof.badge1d") },
-              { t: t("proof.badge2t"), d: t("proof.badge2d") },
-              { t: t("proof.badge3t"), d: t("proof.badge3d") },
-              { t: t("proof.badge4t"), d: t("proof.badge4d") },
-            ].map((b, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="text-center">
-                <div className="w-10 h-10 rounded-full mx-auto mb-3 flex items-center justify-center" style={{ background: "rgba(46,151,165,0.12)", border: "1px solid rgba(46,151,165,0.25)" }}>
-                  <span style={{ color: "#2e97a5" }}>{["✦", "✿", "♥", "☼"][i]}</span>
-                </div>
-                <p className="font-serif text-lg leading-tight" style={{ color: "#22505a" }}>{b.t}</p>
-                <p className="text-xs tracking-wide" style={{ color: "#8299a0" }}>{b.d}</p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
