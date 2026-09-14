@@ -6,7 +6,7 @@ import { MusicWave } from "@/components/MusicWave";
 const rise = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" },
+  viewport: { once: true, margin: "120px" },
   transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
 };
 
@@ -18,86 +18,89 @@ export function HomePage() {
   return (
     <>
       {/* ═══ Hero ═══ */}
-      <section className="relative min-h-screen flex items-center px-8 pt-24 pb-16 overflow-hidden">
+      <section className="relative min-h-screen flex items-center px-6 sm:px-8 pt-32 pb-20 md:pt-24 md:pb-16 overflow-hidden">
         <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(ellipse at 70% 30%, #d7f0f2 0%, #faf8f4 55%)" }} />
         <motion.div animate={{ y: [0, -30, 0], scale: [1, 1.1, 1] }} transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -z-10 rounded-full blur-3xl" style={{ top: "10%", left: "5%", width: 340, height: 340, background: "rgba(130,207,215,0.35)" }} />
+          className="absolute -z-10 rounded-full blur-3xl" style={{ top: "10%", left: "5%", width: 340, height: 340, maxWidth: "70vw", maxHeight: "70vw", background: "rgba(130,207,215,0.35)" }} />
         <motion.div animate={{ y: [0, 24, 0], scale: [1.05, 1, 1.05] }} transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -z-10 rounded-full blur-3xl" style={{ bottom: "12%", right: "8%", width: 300, height: 300, background: "rgba(217,189,127,0.25)" }} />
+          className="absolute -z-10 rounded-full blur-3xl" style={{ bottom: "12%", right: "8%", width: 300, height: 300, maxWidth: "60vw", maxHeight: "60vw", background: "rgba(217,189,127,0.25)" }} />
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-center w-full">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-14 items-center w-full">
+          {/* Portrait — first on mobile, second on desktop */}
+          <motion.div initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+            className="relative order-1 md:order-2 max-w-sm mx-auto md:max-w-none w-full">
+            <div className="absolute -inset-3 sm:-inset-4 rounded-[2.5rem] -z-10" style={{ background: "linear-gradient(135deg, rgba(130,207,215,0.3), rgba(217,189,127,0.3))", filter: "blur(8px)" }} />
+            <motion.div animate={{ y: [0, -12, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="overflow-hidden rounded-[1.75rem] sm:rounded-[2rem]" style={{ boxShadow: "0 30px 60px rgba(34,80,90,0.3)" }}>
+              <img src="/ela.jpeg" alt="Ela" className="w-full h-full object-cover" />
+            </motion.div>
+            <div className="absolute -bottom-5 -left-5 w-20 h-20 sm:w-28 sm:h-28 rounded-full border -z-10" style={{ borderColor: "rgba(201,163,95,0.4)", borderWidth: 1 }} />
+          </motion.div>
+
+          {/* Text */}
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="order-2 md:order-1 text-center md:text-start">
             <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-sm tracking-[0.3em] uppercase mb-6" style={{ color: "#c9a35f" }}>
+              className="text-xs sm:text-sm tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-5 sm:mb-6" style={{ color: "#c9a35f" }}>
               {t("hero.eyebrow")}
             </motion.p>
-            <h1 className="font-serif leading-[1.05] mb-8" style={{ color: "#22505a", fontSize: "clamp(2.75rem, 6vw, 4.75rem)" }}>
+            <h1 className="font-serif leading-[1.08] md:leading-[1.05] mb-6 md:mb-8" style={{ color: "#22505a", fontSize: "clamp(2.25rem, 8vw, 4.75rem)" }}>
               {t("hero.title1")}
               <br />
               <span style={{ fontStyle: "italic", color: "#c9a35f" }}>{t("hero.title2")}</span>
               <br />
               {t("hero.title3")}
             </h1>
-            <p className="text-lg leading-relaxed mb-10 max-w-md" style={{ color: "#4a5f66" }}>
+            <p className="text-base sm:text-lg leading-relaxed mb-8 md:mb-10 max-w-md mx-auto md:mx-0" style={{ color: "#4a5f66" }}>
               {t("hero.subtitle")}
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center md:justify-start">
               <motion.a href="#story" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                style={{ background: "linear-gradient(135deg, #22505a, #2e97a5)", color: "#fff", padding: "18px 44px", borderRadius: "999px", fontSize: "15px", letterSpacing: "0.03em", textDecoration: "none", boxShadow: "0 10px 30px rgba(34,80,90,0.25)", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
+                style={{ background: "linear-gradient(135deg, #22505a, #2e97a5)", color: "#fff", padding: "16px 40px", borderRadius: "999px", fontSize: "15px", letterSpacing: "0.03em", textDecoration: "none", boxShadow: "0 10px 30px rgba(34,80,90,0.25)", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
                 {t("hero.ctaJourney")}
               </motion.a>
               <motion.a href="#offerings" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                style={{ background: "transparent", color: "#22505a", padding: "18px 44px", borderRadius: "999px", fontSize: "15px", letterSpacing: "0.03em", textDecoration: "none", border: "1px solid #82cfd7", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
+                style={{ background: "transparent", color: "#22505a", padding: "16px 40px", borderRadius: "999px", fontSize: "15px", letterSpacing: "0.03em", textDecoration: "none", border: "1px solid #82cfd7", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
                 {t("hero.ctaWork")}
               </motion.a>
             </div>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-            className="relative">
-            <div className="absolute -inset-4 rounded-[2.5rem] -z-10" style={{ background: "linear-gradient(135deg, rgba(130,207,215,0.3), rgba(217,189,127,0.3))", filter: "blur(8px)" }} />
-            <motion.div animate={{ y: [0, -12, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="overflow-hidden rounded-[2rem] shadow-2xl" style={{ boxShadow: "0 30px 60px rgba(34,80,90,0.3)" }}>
-              <img src="/ela.jpeg" alt="Ela" className="w-full h-full object-cover" />
-            </motion.div>
-            <div className="absolute -bottom-6 -left-6 w-28 h-28 rounded-full border -z-10" style={{ borderColor: "rgba(201,163,95,0.4)", borderWidth: 1 }} />
           </motion.div>
         </div>
       </section>
 
       {/* ═══ Story ═══ */}
-      <section id="story" className="px-8 py-32" style={{ background: "#faf8f4" }}>
+      <section id="story" className="px-6 sm:px-8 py-20 sm:py-28 md:py-32" style={{ background: "#faf8f4" }}>
         <div className="max-w-3xl mx-auto">
-          <motion.p {...rise} className="text-center text-sm tracking-[0.3em] uppercase mb-6" style={{ color: "#c9a35f" }}>{t("story.eyebrow")}</motion.p>
-          <motion.h2 {...rise} className="font-serif text-center mb-16" style={{ color: "#22505a", fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+          <motion.p {...rise} className="text-center text-xs sm:text-sm tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-5 sm:mb-6" style={{ color: "#c9a35f" }}>{t("story.eyebrow")}</motion.p>
+          <motion.h2 {...rise} className="font-serif text-center mb-10 sm:mb-16" style={{ color: "#22505a", fontSize: "clamp(1.75rem, 6vw, 3rem)" }}>
             {t("story.title")}
           </motion.h2>
 
-          <div className="space-y-7 text-lg leading-relaxed" style={{ color: "#4a5f66" }}>
+          <div className="space-y-6 sm:space-y-7 text-base sm:text-lg leading-relaxed" style={{ color: "#4a5f66" }}>
             {["story.p1", "story.p2", "story.p3", "story.p4", "story.p5", "story.p6", "story.p7", "story.p8"].map((key, i) => (
-              <motion.p key={key} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.7, delay: Math.min(i, 2) * 0.08 }}>
+              <motion.p key={key} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "120px" }} transition={{ duration: 0.7, delay: Math.min(i, 2) * 0.08 }}>
                 {t(key)}
               </motion.p>
             ))}
           </div>
 
-          <motion.blockquote {...rise} className="mt-20 text-center font-serif italic" style={{ color: "#2e97a5", fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", lineHeight: 1.4 }}>
+          <motion.blockquote {...rise} className="mt-14 sm:mt-20 text-center font-serif italic" style={{ color: "#2e97a5", fontSize: "clamp(1.35rem, 5vw, 2.4rem)", lineHeight: 1.4 }}>
             {t("story.quote")}
           </motion.blockquote>
         </div>
       </section>
 
       {/* ═══ Documented Remission (credibility) ═══ */}
-      <section id="proof" className="px-8 py-32 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #f0fafb 0%, #d7f0f2 100%)" }}>
+      <section id="proof" className="px-6 sm:px-8 py-20 sm:py-28 md:py-32 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #f0fafb 0%, #d7f0f2 100%)" }}>
         <motion.div animate={{ scale: [1, 1.12, 1], opacity: [0.12, 0.2, 0.12] }} transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute rounded-full blur-3xl" style={{ bottom: "-8%", left: "-5%", width: 380, height: 380, background: "rgba(46,151,165,0.35)" }} />
+          className="absolute rounded-full blur-3xl" style={{ bottom: "-8%", left: "-5%", width: 380, height: 380, maxWidth: "70vw", maxHeight: "70vw", background: "rgba(46,151,165,0.35)" }} />
 
         <div className="max-w-5xl mx-auto relative">
-          <motion.p {...rise} className="text-center text-sm tracking-[0.3em] uppercase mb-6" style={{ color: "#c9a35f" }}>{t("proof.eyebrow")}</motion.p>
-          <motion.h2 {...rise} className="font-serif text-center mb-6" style={{ color: "#22505a", fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+          <motion.p {...rise} className="text-center text-xs sm:text-sm tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-5 sm:mb-6" style={{ color: "#c9a35f" }}>{t("proof.eyebrow")}</motion.p>
+          <motion.h2 {...rise} className="font-serif text-center mb-5 sm:mb-6" style={{ color: "#22505a", fontSize: "clamp(1.75rem, 6vw, 3rem)" }}>
             {t("proof.title")}
           </motion.h2>
-          <motion.p {...rise} className="text-center max-w-xl mx-auto mb-14 leading-relaxed" style={{ color: "#4a5f66" }}>
+          <motion.p {...rise} className="text-center max-w-xl mx-auto mb-10 sm:mb-14 leading-relaxed text-base sm:text-lg px-2" style={{ color: "#4a5f66" }}>
             {t("proof.subtitle")}
           </motion.p>
 
@@ -105,7 +108,7 @@ export function HomePage() {
             key={credSrc}
             initial={{ opacity: 0, y: 40, scale: 0.97 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
+            viewport={{ once: true, margin: "120px" }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             whileHover={{ y: -6 }}
             className="relative rounded-3xl overflow-hidden mx-auto"
@@ -121,32 +124,32 @@ export function HomePage() {
       </section>
 
       {/* ═══ Approach ═══ */}
-      <section id="approach" className="px-8 py-32 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #22505a 0%, #22626e 100%)" }}>
+      <section id="approach" className="px-6 sm:px-8 py-20 sm:py-28 md:py-32 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #22505a 0%, #22626e 100%)" }}>
         <motion.div animate={{ scale: [1, 1.15, 1], opacity: [0.15, 0.25, 0.15] }} transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute rounded-full blur-3xl" style={{ top: "-10%", right: "-5%", width: 400, height: 400, background: "rgba(130,207,215,0.4)" }} />
+          className="absolute rounded-full blur-3xl" style={{ top: "-10%", right: "-5%", width: 400, height: 400, maxWidth: "75vw", maxHeight: "75vw", background: "rgba(130,207,215,0.4)" }} />
 
         <div className="max-w-5xl mx-auto relative">
-          <motion.p {...rise} className="text-center text-sm tracking-[0.3em] uppercase mb-6" style={{ color: "#e8d5a8" }}>{t("approach.eyebrow")}</motion.p>
-          <motion.h2 {...rise} className="font-serif text-center text-white mb-6" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+          <motion.p {...rise} className="text-center text-xs sm:text-sm tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-5 sm:mb-6" style={{ color: "#e8d5a8" }}>{t("approach.eyebrow")}</motion.p>
+          <motion.h2 {...rise} className="font-serif text-center text-white mb-5 sm:mb-6" style={{ fontSize: "clamp(1.75rem, 6vw, 3rem)" }}>
             {t("approach.title")}
           </motion.h2>
-          <motion.p {...rise} className="text-center max-w-xl mx-auto mb-20 leading-relaxed" style={{ color: "rgba(215,240,242,0.75)" }}>
+          <motion.p {...rise} className="text-center max-w-xl mx-auto mb-12 sm:mb-20 leading-relaxed text-base sm:text-lg" style={{ color: "rgba(215,240,242,0.75)" }}>
             {t("approach.subtitle")}
           </motion.p>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
             {[
               { title: t("approach.card1t"), body: t("approach.card1b") },
               { title: t("approach.card2t"), body: t("approach.card2b") },
               { title: t("approach.card3t"), body: t("approach.card3b") },
             ].map((c, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.7, delay: i * 0.12 }}
-                whileHover={{ y: -6 }} className="rounded-3xl"
-                style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(130,207,215,0.2)", backdropFilter: "blur(6px)", padding: "40px 36px" }}>
-                <div className="w-11 h-11 rounded-full flex items-center justify-center mb-6" style={{ background: "rgba(232,213,168,0.15)", border: "1px solid rgba(232,213,168,0.3)" }}>
+              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "120px" }} transition={{ duration: 0.7, delay: i * 0.12 }}
+                whileHover={{ y: -6 }} className="rounded-3xl p-8 sm:p-9"
+                style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(130,207,215,0.2)", backdropFilter: "blur(6px)" }}>
+                <div className="w-11 h-11 rounded-full flex items-center justify-center mb-5 sm:mb-6" style={{ background: "rgba(232,213,168,0.15)", border: "1px solid rgba(232,213,168,0.3)" }}>
                   <span style={{ color: "#e8d5a8" }}>{["✦", "○", "◇"][i]}</span>
                 </div>
-                <h3 className="font-serif text-2xl mb-4 text-white">{c.title}</h3>
+                <h3 className="font-serif text-xl sm:text-2xl mb-3 sm:mb-4 text-white">{c.title}</h3>
                 <p className="leading-relaxed text-sm" style={{ color: "rgba(215,240,242,0.72)" }}>{c.body}</p>
               </motion.div>
             ))}
@@ -155,26 +158,26 @@ export function HomePage() {
       </section>
 
       {/* ═══ Offerings ═══ */}
-      <section id="offerings" className="px-8 py-32" style={{ background: "#faf8f4" }}>
+      <section id="offerings" className="px-6 sm:px-8 py-20 sm:py-28 md:py-32" style={{ background: "#faf8f4" }}>
         <div className="max-w-5xl mx-auto">
-          <motion.p {...rise} className="text-center text-sm tracking-[0.3em] uppercase mb-6" style={{ color: "#c9a35f" }}>{t("offerings.eyebrow")}</motion.p>
-          <motion.h2 {...rise} className="font-serif text-center mb-20" style={{ color: "#22505a", fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+          <motion.p {...rise} className="text-center text-xs sm:text-sm tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-5 sm:mb-6" style={{ color: "#c9a35f" }}>{t("offerings.eyebrow")}</motion.p>
+          <motion.h2 {...rise} className="font-serif text-center mb-12 sm:mb-20" style={{ color: "#22505a", fontSize: "clamp(1.75rem, 6vw, 3rem)" }}>
             {t("offerings.title")}
           </motion.h2>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
             {[
               { t: t("offerings.o1t"), d: t("offerings.o1d") },
               { t: t("offerings.o2t"), d: t("offerings.o2d") },
               { t: t("offerings.o3t"), d: t("offerings.o3d") },
               { t: t("offerings.o4t"), d: t("offerings.o4d") },
             ].map((o, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.7, delay: i * 0.1 }}
-                whileHover={{ y: -4 }} className="rounded-3xl flex gap-6"
-                style={{ background: "#fff", border: "1px solid rgba(130,207,215,0.25)", boxShadow: "0 8px 24px rgba(34,80,90,0.05)", padding: "36px 34px" }}>
-                <div className="shrink-0 font-serif text-3xl leading-none" style={{ color: "#d9bd7f", paddingTop: "2px" }}>{String(i + 1).padStart(2, "0")}</div>
+              <motion.div key={i} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "120px" }} transition={{ duration: 0.7, delay: i * 0.1 }}
+                whileHover={{ y: -4 }} className="rounded-3xl flex gap-5 sm:gap-6 p-7 sm:p-9"
+                style={{ background: "#fff", border: "1px solid rgba(130,207,215,0.25)", boxShadow: "0 8px 24px rgba(34,80,90,0.05)" }}>
+                <div className="shrink-0 font-serif text-2xl sm:text-3xl leading-none" style={{ color: "#d9bd7f", paddingTop: "2px" }}>{String(i + 1).padStart(2, "0")}</div>
                 <div>
-                  <h3 className="font-serif text-2xl mb-3" style={{ color: "#22505a" }}>{o.t}</h3>
+                  <h3 className="font-serif text-xl sm:text-2xl mb-2 sm:mb-3" style={{ color: "#22505a" }}>{o.t}</h3>
                   <p className="text-sm leading-relaxed" style={{ color: "#4a5f66" }}>{o.d}</p>
                 </div>
               </motion.div>
@@ -184,13 +187,13 @@ export function HomePage() {
       </section>
 
       {/* ═══ Music ═══ */}
-      <section id="music" className="px-8 py-32 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #d7f0f2, #f0fafb)" }}>
+      <section id="music" className="px-6 sm:px-8 py-20 sm:py-28 md:py-32 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #d7f0f2, #f0fafb)" }}>
         <div className="max-w-3xl mx-auto text-center relative">
-          <motion.p {...rise} className="text-sm tracking-[0.3em] uppercase mb-6" style={{ color: "#c9a35f" }}>{t("music.eyebrow")}</motion.p>
-          <motion.h2 {...rise} className="font-serif mb-10" style={{ color: "#22505a", fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+          <motion.p {...rise} className="text-xs sm:text-sm tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-5 sm:mb-6" style={{ color: "#c9a35f" }}>{t("music.eyebrow")}</motion.p>
+          <motion.h2 {...rise} className="font-serif mb-8 sm:mb-10" style={{ color: "#22505a", fontSize: "clamp(1.75rem, 6vw, 3rem)" }}>
             {t("music.title")}
           </motion.h2>
-          <motion.div {...rise} className="space-y-6 text-lg leading-relaxed" style={{ color: "#4a5f66" }}>
+          <motion.div {...rise} className="space-y-5 sm:space-y-6 text-base sm:text-lg leading-relaxed" style={{ color: "#4a5f66" }}>
             <p>{t("music.p1")}</p>
             <p>{t("music.p2")}</p>
             <p>{t("music.p3")}</p>
@@ -202,13 +205,13 @@ export function HomePage() {
       </section>
 
       {/* ═══ Contact ═══ */}
-      <section id="contact" className="px-8 py-32" style={{ background: "#faf8f4" }}>
+      <section id="contact" className="px-6 sm:px-8 py-20 sm:py-28 md:py-32" style={{ background: "#faf8f4" }}>
         <div className="max-w-xl mx-auto text-center">
-          <motion.p {...rise} className="text-sm tracking-[0.3em] uppercase mb-6" style={{ color: "#c9a35f" }}>{t("contact.eyebrow")}</motion.p>
-          <motion.h2 {...rise} className="font-serif mb-4" style={{ color: "#22505a", fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+          <motion.p {...rise} className="text-xs sm:text-sm tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-5 sm:mb-6" style={{ color: "#c9a35f" }}>{t("contact.eyebrow")}</motion.p>
+          <motion.h2 {...rise} className="font-serif mb-4" style={{ color: "#22505a", fontSize: "clamp(1.75rem, 6vw, 3rem)" }}>
             {t("contact.title")}
           </motion.h2>
-          <motion.p {...rise} className="mb-12 leading-relaxed" style={{ color: "#4a5f66" }}>
+          <motion.p {...rise} className="mb-10 sm:mb-12 leading-relaxed text-base sm:text-lg px-2" style={{ color: "#4a5f66" }}>
             {t("contact.subtitle")}
           </motion.p>
           <motion.div {...rise}>

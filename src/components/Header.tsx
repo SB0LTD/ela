@@ -33,8 +33,8 @@ export function Header() {
         borderBottom: scrolled ? "1px solid rgba(130,207,215,0.2)" : "1px solid transparent",
       }}
     >
-      <div className="flex items-center justify-between px-8 py-5 max-w-6xl mx-auto">
-        <a href="#" className="font-serif text-2xl tracking-wide" style={{ color: "#22505a" }}>
+      <div className="flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 max-w-6xl mx-auto">
+        <a href="#" className="font-serif text-xl sm:text-2xl tracking-wide" style={{ color: "#22505a" }}>
           Ela<span style={{ color: "#c9a35f" }}>Healing</span>
         </a>
 
@@ -56,7 +56,7 @@ export function Header() {
           <LangSwitcher />
         </nav>
 
-        <div className="md:hidden flex items-center gap-4">
+        <div className="md:hidden flex items-center gap-2">
           <LangSwitcher />
           <button onClick={() => setOpen(!open)} className="p-1" aria-label="Menu">
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="#22505a" strokeWidth={1.5}>
