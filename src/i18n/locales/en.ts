@@ -18,7 +18,7 @@ export const en = {
   },
   story: {
     eyebrow: "My Story",
-    title: "A journey through illness, into remission",
+    title: "A journey of listening, into remission",
     p1: "I have always believed in the power of nature — in its healing, its wisdom, and its gifts.",
     p2: "About a decade ago, in the middle of recording my music, life suddenly changed its rhythm. My body began showing clearer and clearer symptoms, until they became impossible to ignore. I went to a doctor, was sent for an MRI, and was eventually diagnosed with multiple sclerosis.",
     p3: "Looking back, I believe the symptoms had been there much earlier. Even as a child and a teenager, my body was crying out for help. I went to doctors again and again, asked for help, and described what I was experiencing — yet for years, the symptoms were never given the deeper investigation they deserved. The diagnosis only came in my thirties.",
