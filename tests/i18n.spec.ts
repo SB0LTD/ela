@@ -4,7 +4,7 @@ const SITE = "https://elahealing.web.app";
 
 const cases = [
   { lng: "en", heading: "I didn't choose", dir: "ltr" },
-  { lng: "he", heading: "לא בחרתי", dir: "rtl" },
+  { lng: "he", heading: "תמיד האמנתי", dir: "rtl" },
   { lng: "ru", heading: "Я не выбирала", dir: "ltr" },
 ];
 

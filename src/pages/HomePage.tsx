@@ -44,12 +44,16 @@ export function HomePage() {
               className="text-xs sm:text-sm tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-5 sm:mb-6" style={{ color: "#c9a35f" }}>
               {t("hero.eyebrow")}
             </motion.p>
-            <h1 className="font-serif leading-[1.08] md:leading-[1.05] mb-6 md:mb-8" style={{ color: "#22505a", fontSize: "clamp(2.25rem, 8vw, 4.75rem)" }}>
+            <h1 className="font-serif leading-[1.15] md:leading-[1.12] mb-6 md:mb-8" style={{ color: "#22505a", fontSize: lang === "he" ? "clamp(1.9rem, 5.5vw, 3.4rem)" : "clamp(2.25rem, 8vw, 4.75rem)" }}>
               {t("hero.title1")}
               <br />
               <span style={{ fontStyle: "italic", color: "#c9a35f" }}>{t("hero.title2")}</span>
-              <br />
-              {t("hero.title3")}
+              {t("hero.title3") && (
+                <>
+                  <br />
+                  {t("hero.title3")}
+                </>
+              )}
             </h1>
             <p className="text-base sm:text-lg leading-relaxed mb-8 md:mb-10 max-w-md mx-auto md:mx-0" style={{ color: "#4a5f66" }}>
               {t("hero.subtitle")}
