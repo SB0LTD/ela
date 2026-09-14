@@ -3,9 +3,9 @@ import { test, expect } from "@playwright/test";
 const SITE = "https://elahealing.web.app";
 
 const cases = [
-  { lng: "en", heading: "I didn't choose", dir: "ltr" },
+  { lng: "en", heading: "I have always believed", dir: "ltr" },
   { lng: "he", heading: "תמיד האמנתי", dir: "rtl" },
-  { lng: "ru", heading: "Я не выбирала", dir: "ltr" },
+  { lng: "ru", heading: "Я всегда верила", dir: "ltr" },
 ];
 
 for (const c of cases) {

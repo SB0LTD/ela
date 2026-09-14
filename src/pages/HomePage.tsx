@@ -44,7 +44,7 @@ export function HomePage() {
               className="text-xs sm:text-sm tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-5 sm:mb-6" style={{ color: "#c9a35f" }}>
               {t("hero.eyebrow")}
             </motion.p>
-            <h1 className="font-serif leading-[1.15] md:leading-[1.12] mb-6 md:mb-8" style={{ color: "#22505a", fontSize: lang === "he" ? "clamp(1.9rem, 5.5vw, 3.4rem)" : "clamp(2.25rem, 8vw, 4.75rem)" }}>
+            <h1 className="font-serif leading-[1.15] md:leading-[1.12] mb-6 md:mb-8" style={{ color: "#22505a", fontSize: "clamp(1.9rem, 5.2vw, 3.4rem)" }}>
               {t("hero.title1")}
               <br />
               <span style={{ fontStyle: "italic", color: "#c9a35f" }}>{t("hero.title2")}</span>
