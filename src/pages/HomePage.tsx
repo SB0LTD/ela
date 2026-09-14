@@ -73,9 +73,9 @@ export function HomePage() {
             {t("story.title")}
           </motion.h2>
 
-          <div className="space-y-8 text-lg leading-relaxed" style={{ color: "#4a5f66" }}>
-            {["story.p1", "story.p2", "story.p3", "story.p4"].map((key, i) => (
-              <motion.p key={key} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.7, delay: i * 0.1 }}>
+          <div className="space-y-7 text-lg leading-relaxed" style={{ color: "#4a5f66" }}>
+            {["story.p1", "story.p2", "story.p3", "story.p4", "story.p5", "story.p6", "story.p7", "story.p8"].map((key, i) => (
+              <motion.p key={key} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.7, delay: Math.min(i, 2) * 0.08 }}>
                 {t(key)}
               </motion.p>
             ))}
